@@ -7,6 +7,7 @@ import BackBtn from "../../components/BackBtn/BackBtn";
 import Loader from "../../components/Loader/Loader";
 
 import classes from "./Repos.module.css";
+import Repo from "../../components/Repo/Repo";
 
 const Repos = () => {
   const { username } = useParams();
@@ -43,7 +44,7 @@ const Repos = () => {
       {repos && repos.length > 0 && (
         <div>
           {repos.map((repo: RepoProps) => (
-            <p>{repo.name}</p>
+            <Repo key={repo.name} {...repo}/>
           ))}
         </div>
       )}
