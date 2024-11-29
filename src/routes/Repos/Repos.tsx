@@ -7,6 +7,7 @@ import BackBtn from "../../components/BackBtn/BackBtn";
 import Loader from "../../components/Loader/Loader";
 
 import classes from "./Repos.module.css";
+
 import Repo from "../../components/Repo/Repo";
 
 const Repos = () => {
@@ -37,12 +38,12 @@ const Repos = () => {
   if(!repos && isLoading) return <Loader />
 
   return (
-    <div>
+    <div className={classes.repos}>
       <BackBtn />
       <h2>Explore os repositórios do usuário: {username}</h2>
       {repos && repos.length === 0 && <p>Usuário não possui nenhum repositório :(</p>}
       {repos && repos.length > 0 && (
-        <div>
+        <div className={classes.repos_container}>
           {repos.map((repo: RepoProps) => (
             <Repo key={repo.name} {...repo}/>
           ))}
